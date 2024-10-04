@@ -19,6 +19,7 @@ app.use(
             process.env.FRONTEND_URL,
             'https://r0owe-4f0f0.web.app',
             'https://test.rowemotoroil.net',
+            'https://rowe-oil-frontend.vercel.app',
             'http://localhost:5173',
         ],
         credentials: true,
@@ -39,13 +40,16 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 8000;
 
-connectDB()
-    .then(() => {
+const startServer = async () => {
+    try {
+        await connectDB();
         app.listen(PORT, () => {
             console.log('Connected to DB');
             console.log('Server is running on port', PORT);
         });
-    })
-    .catch((err) => {
+    } catch (err) {
         console.error('Database connection error:', err);
-    });
+    }
+};
+
+startServer();
