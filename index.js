@@ -20,6 +20,7 @@ app.use(
             'https://r0owe-4f0f0.web.app',
             'https://test.rowemotoroil.net',
             'https://rowe-oil-frontend.vercel.app',
+            'https://rowemotoroil.net',
             'http://localhost:5173',
         ],
         credentials: true,
