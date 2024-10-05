@@ -80,7 +80,7 @@ router.put('/update-user-by-id', updateUserById);
 router.delete('/delete-user', deleteUserController);
 // Products
 router.post('/add-product', upload.array('images'), addProductController);
-router.put('/update-product', updateProductController);
+router.put('/update-product', upload.array('images'), updateProductController);
 router.delete('/delete-product', deleteProductController);
 router.get('/get-all-products', getAllProductsController);
 router.post('/get-category-wise-products', getCategoryWiseProductsController);
