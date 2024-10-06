@@ -131,8 +131,8 @@ router.post('/create-checkout-session', createCheckoutSession);
 
 // CRUD Routes for Categories
 router.post('/categories', authToken, categoryController.createCategory);
-router.get('/categories', authToken, categoryController.getAllCategories);
-router.get('/categories/:id', authToken, categoryController.getCategoryById);
+router.get('/categories', categoryController.getAllCategories);
+router.get('/categories/:id', categoryController.getCategoryById);
 router.put('/categories/:id', authToken, categoryController.updateCategory);
 router.delete('/categories/:id', authToken, categoryController.deleteCategory);
 
@@ -142,11 +142,7 @@ router.post(
     authToken,
     subcategoryController.createSubcategory
 );
-router.get(
-    '/subcategories',
-    authToken,
-    subcategoryController.getAllSubcategories
-);
+router.get('/subcategories', subcategoryController.getAllSubcategories);
 router.get(
     '/subcategories/:id',
     authToken,
