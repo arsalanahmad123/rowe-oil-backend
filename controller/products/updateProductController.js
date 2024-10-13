@@ -30,6 +30,7 @@ async function updateProductController(req, res) {
             containerSizes,
             viscosity,
             articleNumber,
+            images,
         } = req.body;
 
         if (category) {
@@ -73,6 +74,7 @@ async function updateProductController(req, res) {
             ...(containerSizes && { containerSizes }),
             ...(viscosity && { viscosity }),
             ...(articleNumber && { articleNumber }),
+            ...(images && { images }),
         };
 
         const updatedProduct = await ProductModel.findById(productId);
@@ -112,7 +114,7 @@ async function updateProductController(req, res) {
             data: savedProduct,
         });
     } catch (error) {
-        console.error('Error updating product:', error); // Log the error for debugging
+        console.error('Error updating product:', error);
         res.status(400).json({
             message: error.message || error,
             error: true,
